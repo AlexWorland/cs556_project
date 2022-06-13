@@ -605,6 +605,7 @@ private: System::Windows::Forms::TextBox^ confusionMatrixTextBox;
             this->trackBar1->BackColor = System::Drawing::SystemColors::Control;
             this->trackBar1->LargeChange = 1;
             this->trackBar1->Location = System::Drawing::Point(4, 71);
+            this->trackBar1->Minimum = -10;
             this->trackBar1->Name = L"trackBar1";
             this->trackBar1->Size = System::Drawing::Size(185, 45);
             this->trackBar1->TabIndex = 9;
@@ -655,16 +656,16 @@ private: System::Windows::Forms::TextBox^ confusionMatrixTextBox;
             this->menuStrip1->ImageScalingSize = System::Drawing::Size(32, 32);
             this->menuStrip1->Location = System::Drawing::Point(0, 0);
             this->menuStrip1->Name = L"menuStrip1";
-            this->menuStrip1->Size = System::Drawing::Size(1530, 24);
+            this->menuStrip1->Size = System::Drawing::Size(1712, 24);
             this->menuStrip1->TabIndex = 5;
             this->menuStrip1->Text = L"menuStrip1";
             // 
             // statusStrip1
             // 
             this->statusStrip1->ImageScalingSize = System::Drawing::Size(32, 32);
-            this->statusStrip1->Location = System::Drawing::Point(0, 763);
+            this->statusStrip1->Location = System::Drawing::Point(0, 922);
             this->statusStrip1->Name = L"statusStrip1";
-            this->statusStrip1->Size = System::Drawing::Size(1530, 22);
+            this->statusStrip1->Size = System::Drawing::Size(1712, 22);
             this->statusStrip1->TabIndex = 6;
             this->statusStrip1->Text = L"statusStrip1";
             // 
@@ -759,7 +760,7 @@ private: System::Windows::Forms::TextBox^ confusionMatrixTextBox;
             this->panel2->Controls->Add(this->groupBox1);
             this->panel2->Controls->Add(this->button5);
             this->panel2->Controls->Add(this->graph4);
-            this->panel2->Location = System::Drawing::Point(1320, 27);
+            this->panel2->Location = System::Drawing::Point(1503, 27);
             this->panel2->Name = L"panel2";
             this->panel2->Size = System::Drawing::Size(209, 748);
             this->panel2->TabIndex = 13;
@@ -957,7 +958,7 @@ private: System::Windows::Forms::TextBox^ confusionMatrixTextBox;
             // Form1
             // 
             this->BackColor = System::Drawing::SystemColors::Control;
-            this->ClientSize = System::Drawing::Size(1530, 785);
+            this->ClientSize = System::Drawing::Size(1712, 944);
             this->Controls->Add(this->panel2);
             this->Controls->Add(this->label2);
             this->Controls->Add(this->statusStrip1);
