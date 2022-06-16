@@ -821,7 +821,7 @@ public:
 		{
 			if (i < strlen(string))
 			{
-				glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *c);
+				glutBitmapCharacter(GLUT_BITMAP_HELVETICA_12, *c);
 			}
 			else
 			{

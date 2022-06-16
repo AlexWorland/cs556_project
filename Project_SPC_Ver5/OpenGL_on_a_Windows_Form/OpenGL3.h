@@ -72,12 +72,18 @@ public
 
         /// <summary>	Is made true via mouselistener when dragging the mouse. </summary>
         bool drawingDragged;
-        bool drawingRectangleEnabled = false;
-        bool drawingRectangleVertex1 = true;
-        GLfloat drawingRectangleX1;
-        GLfloat drawingRectangleY1;
-        GLfloat drawingRectangleX2;
-        GLfloat drawingRectangleY2;
+        bool drawingCondensingRectangleEnabled = false;
+        bool drawingCondensingRectangleVertex1 = true;
+        GLfloat drawingCondensingRectangleX1;
+        GLfloat drawingCondensingRectangleY1;
+        GLfloat drawingCondensingRectangleX2;
+        GLfloat drawingCondensingRectangleY2;
+
+        bool drawUserRectangleMode = false;
+
+
+
+
         bool mouseButtonDown = false;
         bool drawingAndRectEnabled;
         bool drawingOrRectEnabled;
@@ -252,10 +258,10 @@ public
             graph4.isRectangleMode = state;
             if (!state)
             {
-                graph4.rectX1List.clear();
-                graph4.rectX2List.clear();
-                graph4.rectY1List.clear();
-                graph4.rectY2List.clear();
+                graph4.condRectX1List.clear();
+                graph4.condRectX2List.clear();
+                graph4.condRectY1List.clear();
+                graph4.condRectY2List.clear();
             }
         }
 
@@ -694,22 +700,22 @@ public
                 { // SPC
                     {
                         // rectangle mode
-                        if (drawingRectangleEnabled)
+                        if (drawingCondensingRectangleEnabled)
                         {
-                            if (drawingRectangleVertex1)
+                            if (drawingCondensingRectangleVertex1)
                             {
-                                drawingRectangleX1 = worldMouseX;
-                                drawingRectangleY1 = worldMouseY;
+                                drawingCondensingRectangleX1 = worldMouseX;
+                                drawingCondensingRectangleY1 = worldMouseY;
                             }
                             else
                             {
-                                drawingRectangleX2 = worldMouseX;
-                                drawingRectangleY2 = worldMouseY;
-                                drawingRectangleEnabled = !drawingRectangleEnabled;
-                                graph4.rectX1List.push_back((GLfloat)drawingRectangleX1);
-                                graph4.rectY1List.push_back((GLfloat)drawingRectangleY1);
-                                graph4.rectX2List.push_back((GLfloat)drawingRectangleX2);
-                                graph4.rectY2List.push_back((GLfloat)drawingRectangleY2);
+                                drawingCondensingRectangleX2 = worldMouseX;
+                                drawingCondensingRectangleY2 = worldMouseY;
+                                drawingCondensingRectangleEnabled = !drawingCondensingRectangleEnabled;
+                                graph4.condRectX1List.push_back((GLfloat)drawingCondensingRectangleX1);
+                                graph4.condRectY1List.push_back((GLfloat)drawingCondensingRectangleY1);
+                                graph4.condRectX2List.push_back((GLfloat)drawingCondensingRectangleX2);
+                                graph4.condRectY2List.push_back((GLfloat)drawingCondensingRectangleY2);
                                 /*graph4.rectX1 = drawingRectangleX1;
                                 graph4.rectY1 = drawingRectangleY1;
                                 graph4.rectX2 = drawingRectangleX2;
@@ -717,7 +723,7 @@ public
                                 drawingRectangleEnabled = false;*/
                                 setDrawingRectangleState(true);
                             }
-                            drawingRectangleVertex1 = !drawingRectangleVertex1;
+                            drawingCondensingRectangleVertex1 = !drawingCondensingRectangleVertex1;
                             break;
                         }
 

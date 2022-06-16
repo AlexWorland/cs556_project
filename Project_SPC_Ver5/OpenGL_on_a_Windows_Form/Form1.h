@@ -263,6 +263,9 @@ public
     private:
         System::Windows::Forms::Button ^ adjustThresholdsButton;
 private: System::Windows::Forms::TextBox^ confusionMatrixTextBox;
+private: System::Windows::Forms::Button^ removeUserRect;
+private: System::Windows::Forms::Button^ button11;
+private: System::Windows::Forms::Button^ drawCustomRectangleButton;
 
 
 
@@ -337,6 +340,9 @@ private: System::Windows::Forms::TextBox^ confusionMatrixTextBox;
             this->classTransparencySelection = (gcnew System::Windows::Forms::ComboBox());
             this->transparencySlider = (gcnew System::Windows::Forms::TrackBar());
             this->transparencyLabel = (gcnew System::Windows::Forms::Label());
+            this->drawCustomRectangleButton = (gcnew System::Windows::Forms::Button());
+            this->button11 = (gcnew System::Windows::Forms::Button());
+            this->removeUserRect = (gcnew System::Windows::Forms::Button());
             this->panel1->SuspendLayout();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar1))->BeginInit();
             this->groupBox1->SuspendLayout();
@@ -372,6 +378,9 @@ private: System::Windows::Forms::TextBox^ confusionMatrixTextBox;
             // panel1
             // 
             this->panel1->BackColor = System::Drawing::SystemColors::ButtonFace;
+            this->panel1->Controls->Add(this->removeUserRect);
+            this->panel1->Controls->Add(this->button11);
+            this->panel1->Controls->Add(this->drawCustomRectangleButton);
             this->panel1->Controls->Add(this->confusionMatrixTextBox);
             this->panel1->Controls->Add(this->adjustThresholdsButton);
             this->panel1->Controls->Add(this->showClassAccuraciesButton);
@@ -392,7 +401,7 @@ private: System::Windows::Forms::TextBox^ confusionMatrixTextBox;
             this->panel1->ForeColor = System::Drawing::SystemColors::ControlText;
             this->panel1->Location = System::Drawing::Point(0, 0);
             this->panel1->Name = L"panel1";
-            this->panel1->Size = System::Drawing::Size(200, 775);
+            this->panel1->Size = System::Drawing::Size(200, 919);
             this->panel1->TabIndex = 4;
             this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Form1::panel1_Paint);
             // 
@@ -434,18 +443,18 @@ private: System::Windows::Forms::TextBox^ confusionMatrixTextBox;
             // button9
             // 
             this->button9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F));
-            this->button9->Location = System::Drawing::Point(12, 554);
+            this->button9->Location = System::Drawing::Point(12, 533);
             this->button9->Name = L"button9";
-            this->button9->Size = System::Drawing::Size(173, 41);
+            this->button9->Size = System::Drawing::Size(173, 37);
             this->button9->TabIndex = 34;
-            this->button9->Text = L"Draw Rects On Gray";
+            this->button9->Text = L";;";
             this->button9->UseVisualStyleBackColor = true;
             this->button9->Click += gcnew System::EventHandler(this, &Form1::button9_Click_1);
             // 
             // SwapAttributesButton
             // 
             this->SwapAttributesButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F));
-            this->SwapAttributesButton->Location = System::Drawing::Point(12, 661);
+            this->SwapAttributesButton->Location = System::Drawing::Point(16, 717);
             this->SwapAttributesButton->Name = L"SwapAttributesButton";
             this->SwapAttributesButton->Size = System::Drawing::Size(173, 34);
             this->SwapAttributesButton->TabIndex = 33;
@@ -458,9 +467,9 @@ private: System::Windows::Forms::TextBox^ confusionMatrixTextBox;
             this->clearRectangleButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F));
             this->clearRectangleButton->Location = System::Drawing::Point(103, 477);
             this->clearRectangleButton->Name = L"clearRectangleButton";
-            this->clearRectangleButton->Size = System::Drawing::Size(85, 61);
+            this->clearRectangleButton->Size = System::Drawing::Size(85, 50);
             this->clearRectangleButton->TabIndex = 32;
-            this->clearRectangleButton->Text = L"Clear Rectangle";
+            this->clearRectangleButton->Text = L"Clear Condense";
             this->clearRectangleButton->UseVisualStyleBackColor = true;
             this->clearRectangleButton->Click += gcnew System::EventHandler(this, &Form1::clearRectangleButton_Click);
             // 
@@ -469,16 +478,16 @@ private: System::Windows::Forms::TextBox^ confusionMatrixTextBox;
             this->drawRectangleButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F));
             this->drawRectangleButton->Location = System::Drawing::Point(12, 477);
             this->drawRectangleButton->Name = L"drawRectangleButton";
-            this->drawRectangleButton->Size = System::Drawing::Size(85, 61);
+            this->drawRectangleButton->Size = System::Drawing::Size(85, 50);
             this->drawRectangleButton->TabIndex = 31;
-            this->drawRectangleButton->Text = L"Draw Rectangle";
+            this->drawRectangleButton->Text = L"Draw Condense\r\n";
             this->drawRectangleButton->UseVisualStyleBackColor = true;
             this->drawRectangleButton->Click += gcnew System::EventHandler(this, &Form1::drawRectangleButton_Click);
             // 
             // button7
             // 
             this->button7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F));
-            this->button7->Location = System::Drawing::Point(99, 616);
+            this->button7->Location = System::Drawing::Point(103, 672);
             this->button7->Name = L"button7";
             this->button7->Size = System::Drawing::Size(80, 39);
             this->button7->TabIndex = 30;
@@ -489,7 +498,7 @@ private: System::Windows::Forms::TextBox^ confusionMatrixTextBox;
             // button8
             // 
             this->button8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F));
-            this->button8->Location = System::Drawing::Point(12, 616);
+            this->button8->Location = System::Drawing::Point(16, 672);
             this->button8->Name = L"button8";
             this->button8->Size = System::Drawing::Size(81, 39);
             this->button8->TabIndex = 29;
@@ -504,7 +513,7 @@ private: System::Windows::Forms::TextBox^ confusionMatrixTextBox;
             this->checkedListBox4->CheckOnClick = true;
             this->checkedListBox4->ForeColor = System::Drawing::SystemColors::WindowText;
             this->checkedListBox4->FormattingEnabled = true;
-            this->checkedListBox4->Location = System::Drawing::Point(133, 710);
+            this->checkedListBox4->Location = System::Drawing::Point(132, 764);
             this->checkedListBox4->Name = L"checkedListBox4";
             this->checkedListBox4->Size = System::Drawing::Size(59, 2);
             this->checkedListBox4->TabIndex = 28;
@@ -515,7 +524,7 @@ private: System::Windows::Forms::TextBox^ confusionMatrixTextBox;
             // 
             this->label9->AutoSize = true;
             this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F));
-            this->label9->Location = System::Drawing::Point(12, 709);
+            this->label9->Location = System::Drawing::Point(11, 763);
             this->label9->Name = L"label9";
             this->label9->Size = System::Drawing::Size(88, 16);
             this->label9->TabIndex = 27;
@@ -525,7 +534,7 @@ private: System::Windows::Forms::TextBox^ confusionMatrixTextBox;
             // checkBox1
             // 
             this->checkBox1->CheckAlign = System::Drawing::ContentAlignment::TopLeft;
-            this->checkBox1->Location = System::Drawing::Point(16, 732);
+            this->checkBox1->Location = System::Drawing::Point(15, 786);
             this->checkBox1->Name = L"checkBox1";
             this->checkBox1->Size = System::Drawing::Size(173, 31);
             this->checkBox1->TabIndex = 14;
@@ -656,7 +665,7 @@ private: System::Windows::Forms::TextBox^ confusionMatrixTextBox;
             this->menuStrip1->ImageScalingSize = System::Drawing::Size(32, 32);
             this->menuStrip1->Location = System::Drawing::Point(0, 0);
             this->menuStrip1->Name = L"menuStrip1";
-            this->menuStrip1->Size = System::Drawing::Size(1712, 24);
+            this->menuStrip1->Size = System::Drawing::Size(1713, 24);
             this->menuStrip1->TabIndex = 5;
             this->menuStrip1->Text = L"menuStrip1";
             // 
@@ -665,7 +674,7 @@ private: System::Windows::Forms::TextBox^ confusionMatrixTextBox;
             this->statusStrip1->ImageScalingSize = System::Drawing::Size(32, 32);
             this->statusStrip1->Location = System::Drawing::Point(0, 922);
             this->statusStrip1->Name = L"statusStrip1";
-            this->statusStrip1->Size = System::Drawing::Size(1712, 22);
+            this->statusStrip1->Size = System::Drawing::Size(1713, 22);
             this->statusStrip1->TabIndex = 6;
             this->statusStrip1->Text = L"statusStrip1";
             // 
@@ -955,10 +964,38 @@ private: System::Windows::Forms::TextBox^ confusionMatrixTextBox;
             this->transparencyLabel->TabIndex = 11;
             this->transparencyLabel->Text = L"Class Transparency";
             // 
+            // drawCustomRectangleButton
+            // 
+            this->drawCustomRectangleButton->Location = System::Drawing::Point(12, 576);
+            this->drawCustomRectangleButton->Name = L"drawCustomRectangleButton";
+            this->drawCustomRectangleButton->Size = System::Drawing::Size(85, 41);
+            this->drawCustomRectangleButton->TabIndex = 40;
+            this->drawCustomRectangleButton->Text = L"Draw User Rect";
+            this->drawCustomRectangleButton->UseVisualStyleBackColor = true;
+            this->drawCustomRectangleButton->Click += gcnew System::EventHandler(this, &Form1::drawCustomRectangleButton_Click);
+            // 
+            // button11
+            // 
+            this->button11->Location = System::Drawing::Point(103, 576);
+            this->button11->Name = L"button11";
+            this->button11->Size = System::Drawing::Size(82, 41);
+            this->button11->TabIndex = 41;
+            this->button11->Text = L"Change user rect color";
+            this->button11->UseVisualStyleBackColor = true;
+            // 
+            // removeUserRect
+            // 
+            this->removeUserRect->Location = System::Drawing::Point(12, 623);
+            this->removeUserRect->Name = L"removeUserRect";
+            this->removeUserRect->Size = System::Drawing::Size(171, 43);
+            this->removeUserRect->TabIndex = 42;
+            this->removeUserRect->Text = L"Remove User Rect";
+            this->removeUserRect->UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this->BackColor = System::Drawing::SystemColors::Control;
-            this->ClientSize = System::Drawing::Size(1712, 944);
+            this->ClientSize = System::Drawing::Size(1713, 944);
             this->Controls->Add(this->panel2);
             this->Controls->Add(this->label2);
             this->Controls->Add(this->statusStrip1);
@@ -1720,11 +1757,11 @@ private: System::Windows::Forms::TextBox^ confusionMatrixTextBox;
             {
                 String ^ str = "To draw a rectangle, click once for the first corner, then click again for the opposite corner.";
                 MessageBox::Show(str);
-                OpenGL3->drawingRectangleEnabled = true;
+                OpenGL3->drawingCondensingRectangleEnabled = true;
             }
             else
             {
-                OpenGL3->drawingRectangleEnabled = false;
+                OpenGL3->drawingCondensingRectangleEnabled = false;
             }
         }
 
@@ -1732,7 +1769,7 @@ private: System::Windows::Forms::TextBox^ confusionMatrixTextBox;
         System::Void clearRectangleButton_Click(System::Object ^ sender, System::EventArgs ^ e)
         {
             // Clear rectangle
-            OpenGL3->drawingRectangleEnabled = false;
+            OpenGL3->drawingCondensingRectangleEnabled = false;
             OpenGL3->setDrawingRectangleState(false);
             OpenGL3->seedDataTerminationPoints();
         }
@@ -1881,6 +1918,15 @@ private: System::Windows::Forms::TextBox^ confusionMatrixTextBox;
         }
     private: System::Void confusionMatrixTextBox_TextChanged(System::Object^ sender, System::EventArgs^ e) {
     }
+
+           bool drawingTopRight = true;
+private: System::Void drawCustomRectangleButton_Click(System::Object^ sender, System::EventArgs^ e) {
+    OpenGL3->drawUserRectangleMode = true;
+
+
+
+    drawingTopRight = !drawingTopRight;
+}
 };
 }
 

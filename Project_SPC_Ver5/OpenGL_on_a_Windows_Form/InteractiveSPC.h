@@ -48,15 +48,20 @@ public:
 	bool shouldPointTerminate(GLfloat px, GLfloat py);
 
 	// *** USED FOR DRAWING RECTANGLES AND IDENTIFY WHICH LINES INTERSECT IT
-	std::vector<GLfloat> rectX1List;
-	std::vector<GLfloat> rectY1List;
-	std::vector<GLfloat> rectX2List;
-	std::vector<GLfloat> rectY2List;
+	std::vector<GLfloat> condRectX1List;
+	std::vector<GLfloat> condRectY1List;
+	std::vector<GLfloat> condRectX2List;
+	std::vector<GLfloat> condRectY2List;
+	std::vector<GLfloat> userRectX1List;
+	std::vector<GLfloat> userRectY1List;
+	std::vector<GLfloat> userRectX2List;
+	std::vector<GLfloat> userRectY2List;
 	GLfloat rectX1;
 	GLfloat rectY1;
 	GLfloat rectX2;
 	GLfloat rectY2;
-	bool isRectangleMode = false;
+	bool isCondensingRectangleMode = false;
+	bool isUserRectangleMode = false;
 	bool isBackgroundDensityColoringMode = false;
 	int isLineTrivial(bool * startPointTriviality, bool * endPointTriviality);
 	bool doPointsIntersectRectangle(GLfloat x1, GLfloat y1, GLfloat x2, GLfloat y2);
